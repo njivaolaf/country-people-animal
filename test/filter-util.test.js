@@ -29,7 +29,7 @@ describe('FilterUtil', function () {
 
             assert.notStrictEqual(result, null);
             assert.strictEqual(Array.isArray(result), true);
-            assert.strictEqual(result.length, 0);
+            assert.strictEqual(result.length, 2);
 
             assert.deepStrictEqual(result[0].name, 'Uzuzozne');
             assert.deepStrictEqual(result[0].people[0].name, 'Lillie Abbott');
