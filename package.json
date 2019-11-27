@@ -1,0 +1,22 @@
+{
+  "name": "country-people-animal",
+  "version": "1.0.0",
+  "description": "This program has to filter a list of elements containing a pattern.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njivaolaf/country-people-animal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njivaolaf/country-people-animal/issues"
+  },
+  "homepage": "https://github.com/njivaolaf/country-people-animal#readme",
+  "devDependencies": {
+    "mocha": "^6.2.2"
+  }
+}
