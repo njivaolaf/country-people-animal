@@ -1,17 +1,51 @@
 var assert = require('assert');
 
 describe('Util', function () {
-    describe('#getArgvDetailByName()', function () {
-        it('should return { found: false ,value: null } when not found', function () {
-            const argsList = [
-                '/home/njivaolaf/.nvm/versions/node/v...',
-                '/home/njivaolaf/testfolder...'
-            ];
-            var Util = require('../lib/util');
+    describe('#getArgvDetailsByName()', function () {
 
-            const argvDetail = Util.getArgvDetailByName(argsList);
-            assert.deepEqual(argvDetail,null);
-            
+        it('should return { found: false ,value: null } when filter is searched and not found in arguments list', function () {
+            // Mocking parameters list
+            const input = {
+                argsList: [
+                    '/home/njivaolaf/.nvm/versions/node/v...',
+                    '/home/njivaolaf/testfolder...'
+                ],
+                argName: 'filter'
+            }
+
+            const expected = {
+                found: false,
+                value: null
+            };
+
+            var Util = require('../lib/util');
+            const result = Util.getArgvDetailsByName(input.argsList, input.argName);
+
+            assert.deepStrictEqual(result, expected);
+
+        });
+
+        it('should return { found: true ,value: null } when filter is found but no value is passed', function () {
+            // Mocking parameters list
+            const input = {
+                argsList: [
+                    '/home/njivaolaf/.nvm/versions/node/v...',
+                    '/home/njivaolaf/testfolder...',
+                    '--filter'
+                ],
+                argName: 'filter'
+            }
+
+            const expected = {
+                found: true,
+                value: null
+            };
+
+            var Util = require('../lib/util');
+            const result = Util.getArgvDetailsByName(input.argsList, input.argName);
+
+            assert.deepStrictEqual(result, expected);
+
         });
     });
 });
