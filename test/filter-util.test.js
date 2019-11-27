@@ -36,7 +36,22 @@ describe('FilterUtil', function () {
 
         });
 
-        it('should return a list of countries and people with animals containing tula with intact order');
+        it('should return a list of countries and people with animals containing tula with intact order',()=>{
+            const input = {
+                dataList: mainData.data,
+                filterString: 'tula',
+                enableCount: false
+            }
+
+            const result = FilterUtil.filterCountryListData(input.dataList, input.filterString, input.enableCount);
+
+            assert.notStrictEqual(result, null);
+            assert.strictEqual(Array.isArray(result), true);
+            assert.strictEqual(result.length, 1);
+
+            assert.deepStrictEqual(result[0].name, 'Satanwi');
+            assert.deepStrictEqual(result[0].people[0].name, 'Anthony Bruno');
+        });
 
         it('should return a blank list when searching for abcd');
 
